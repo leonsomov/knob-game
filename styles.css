@@ -1,0 +1,293 @@
+@font-face {
+  font-family: "Climate Ice";
+  src: url("Climate-Ice-3.ttf") format("truetype");
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light;
+  --page: #e4e1e2;
+  --ink: #0d0d0d;
+  --muted: #3d3d3d;
+  --panel: rgba(255, 255, 255, 0.16);
+  --panel-edge: #111111;
+  --track: rgba(255, 255, 255, 0.2);
+  --track-dark: rgba(255, 255, 255, 0.1);
+  --accent: #0d0d0d;
+  --button: #121212;
+  --button-hover: #2b2b2b;
+  --ok-bg: #13311f;
+  --bad-bg: #582020;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Arial Narrow", "Avenir Next Condensed", "Helvetica Neue", sans-serif;
+  background: var(--page);
+  color: var(--ink);
+}
+
+.app-shell {
+  width: min(900px, 100%);
+  max-width: 900px;
+  padding: 20px 16px 28px;
+}
+
+.brand-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.brand-logo {
+  width: 70px;
+  height: auto;
+  filter: grayscale(1) contrast(1.2);
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 1.9rem;
+  line-height: 1;
+  font-family: "Climate Ice", "Arial Narrow", sans-serif;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.brand-text p {
+  margin: 4px 0 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-align: right;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.panel {
+  background: var(--panel);
+  border: 1px solid var(--panel-edge);
+  border-radius: 0;
+  padding: 16px;
+  box-shadow: none;
+}
+
+.hidden {
+  display: none;
+}
+
+#start-screen h2 {
+  margin: 0 0 10px;
+  font-family: "Climate Ice", "Arial Narrow", sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+}
+
+#start-screen p {
+  margin: 0 0 10px;
+  color: var(--muted);
+  max-width: 56ch;
+}
+
+.hud {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.hud-block {
+  padding: 8px 9px;
+  border: 1px solid var(--ink);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.hud-block span {
+  display: block;
+  font-size: 0.66rem;
+  color: var(--muted);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.hud-block strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1.35rem;
+  line-height: 1;
+  font-family: "Climate Ice", "Arial Narrow", sans-serif;
+  letter-spacing: 0.04em;
+}
+
+.hud-center {
+  text-align: center;
+}
+
+.hud-right {
+  text-align: right;
+}
+
+.eq-rail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.eq-pill {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 10px;
+  border-radius: 0;
+  background: var(--track-dark);
+  color: var(--muted);
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  border: 1px solid var(--ink);
+  font-size: 0.74rem;
+}
+
+.eq-pill.active {
+  color: var(--page);
+  background: var(--accent);
+  border-color: var(--ink);
+}
+
+.prompt {
+  margin: 0 0 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  max-width: 65ch;
+}
+
+.options {
+  display: grid;
+  gap: 8px;
+}
+
+.option-button {
+  width: 100%;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--track);
+  color: var(--ink);
+  font-size: 1.01rem;
+  text-align: left;
+  padding: 11px 12px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.option-button:active {
+  transform: translateY(1px);
+}
+
+.option-button:disabled {
+  opacity: 1;
+}
+
+.option-button.correct {
+  background: var(--ok-bg);
+  color: #f0f0f0;
+  border-color: var(--ink);
+}
+
+.option-button.wrong {
+  background: var(--bad-bg);
+  color: #f0f0f0;
+  border-color: var(--ink);
+}
+
+.hint {
+  margin: 10px 0 5px;
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.feedback {
+  min-height: 1.3em;
+  margin: 4px 0 0;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.feedback.ok {
+  color: #205736;
+}
+
+.feedback.bad {
+  color: #7a2b2b;
+}
+
+h2,
+h3 {
+  margin: 0 0 10px;
+  font-family: "Climate Ice", "Arial Narrow", sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.review-list {
+  margin: 0 0 16px;
+  padding-left: 18px;
+  color: var(--ink);
+  line-height: 1.45;
+  font-size: 0.98rem;
+}
+
+.primary-button {
+  width: 100%;
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--button);
+  color: var(--page);
+  padding: 10px 12px;
+  font-size: 1rem;
+  font-family: "Climate Ice", "Arial Narrow", sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.primary-button:hover,
+.primary-button:active {
+  background: var(--button-hover);
+}
+
+@media (max-width: 640px) {
+  .brand-logo {
+    width: 58px;
+  }
+
+  .brand-text h1 {
+    font-size: 1.5rem;
+  }
+
+  .hud-block strong {
+    font-size: 1.05rem;
+  }
+
+  .option-button {
+    font-size: 0.95rem;
+  }
+}

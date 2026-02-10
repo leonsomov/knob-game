@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bullfrog Which Knob Moved</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="brand-head">
+        <img src="geeky-punks-logo.svg" alt="Geeky Punks logo" class="brand-logo" />
+        <div class="brand-text">
+          <h1>Ear Warmup</h1>
+          <p>The Sound of Everything</p>
+        </div>
+      </header>
+
+      <section id="start-screen" class="panel">
+        <h2>Bullfrog Which Knob Moved</h2>
+        <p>10 rounds. Each round plays <strong>Take A</strong>, then silence, then <strong>Take B</strong>.</p>
+        <p>Between A and B, only one knob changes: <strong>Cutoff</strong>, <strong>Resonance</strong>, or <strong>Decay</strong>.</p>
+        <p>Audio keeps looping until you answer.</p>
+        <button id="start-button" class="primary-button" type="button">Tap to start</button>
+      </section>
+
+      <section id="quiz-screen" class="panel hidden" aria-live="polite">
+        <div class="hud">
+          <div class="hud-block">
+            <span>Score</span>
+            <strong id="live-score">0</strong>
+          </div>
+          <div class="hud-block hud-center">
+            <span>Round</span>
+            <strong id="progress">1/10</strong>
+          </div>
+          <div class="hud-block hud-right">
+            <span>Phase</span>
+            <strong id="loop-status">Take A</strong>
+          </div>
+        </div>
+
+        <div class="eq-rail" aria-hidden="true">
+          <span id="eq-off-indicator" class="eq-pill active">Take A</span>
+          <span id="eq-on-indicator" class="eq-pill">Take B</span>
+        </div>
+
+        <p id="prompt" class="prompt"></p>
+        <p id="debug-answer" class="hint hidden"></p>
+        <div id="options" class="options" role="group" aria-label="Answer options"></div>
+        <p class="hint">Keys: 1 2 3</p>
+        <p id="feedback" class="feedback"></p>
+      </section>
+
+      <section id="result-screen" class="panel hidden">
+        <h2 id="score">Score: 0/10</h2>
+        <h3>Round recap</h3>
+        <ol id="review" class="review-list"></ol>
+        <button id="restart-button" class="primary-button" type="button">Run Again</button>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
